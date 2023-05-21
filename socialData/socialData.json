@@ -1,0 +1,59 @@
+{
+    "socialNetwork":{
+      "behance": {
+        "url": "../../socialData/img/Behance.svg", 
+        "alt_text": "Behance",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "gitHub": {
+        "url": "../../socialData/img/GitHub.svg",
+        "alt_text": "GitHub",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "instagram": {
+        "url": "../../socialData/img/Instagram.svg",
+        "alt_text": "Instagram",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "pinterest": {
+        "url": "../../socialData/img/Pinterest.svg",
+        "alt_text": "Pinterest",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "telegram": {
+        "url": "../../socialData/img/Telegram.svg",
+        "alt_text": "Telegram",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "tikTok": {
+        "url": "../../socialData/img/TikTok.svg",
+        "alt_text": "TikTok",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      },
+      "youTube": {
+        "url": "../../socialData/img/YouTube.svg",
+        "alt_text": "A beautiful sunset over the ocean",
+        "link":"https://www.youtube.com/watch?v=8LZcXc0hq6o"
+      }
+    },
+    "email":{
+      "text":"gm3236@gmail.com",
+      "icon":"../../socialData/img/copy.svg"
+    },
+    "site": {
+        "url":"https://mg1010.com",
+        "name":"mg1010.com"
+    },
+    "copy": {
+      "text": "Mikhail Gorbunov",
+      "link": "https://mg1010.com/"
+    },
+    "donate": {
+      "title":"Support the Author",
+      "text":"Every great video starts with an idea, and every idea starts with support. By donating to Mikhail, you can help turn their dreams into reality, and bring more great content to the world. So why not take the next step and make your impact today?",
+      "link": "https://mg1010.com/"
+    }
+  }
+
+
+    

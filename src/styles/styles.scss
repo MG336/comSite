@@ -1,0 +1,89 @@
+$index: calc(1vh + 1vw);
+$containerWidth: 1132px;
+$textPrimeColor: rgb(255, 255, 255);
+$bgColor:#1c1c1c;
+
+$color1:#000000;
+$color2:#2b2b2b;
+$color3:#00b3ff;
+$link:#ff2200;
+html {
+    background-color: black;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+img {
+    display: block;
+}
+body {
+    background-color: $bgColor;
+}
+
+
+@font-face {
+    font-family: "inter-c";
+    src: url("../assets/font/InterThin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: "inter-c";
+    src: url("../assets/font/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "inter-c";
+    src: url("../assets/font/Inter-Bold.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+h1, h2, h3, h4, h5, p, a, span {
+    font-family: "inter-c";
+}
+a {
+    text-decoration: none;
+}
+
+p {
+    line-height: clamp(1.3rem, 5vw, 1.6rem);
+    font-size: clamp(.8rem, 5vw, 1.1rem);
+    color: $textPrimeColor;
+    opacity: .8;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: $textPrimeColor;
+    text-transform: uppercase;
+}
+h3 {
+    font-size: clamp(1.2rem, 5vw, 1.4rem);
+    color: $textPrimeColor;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.btn {
+    // border: 1px solid white;
+
+    display: block;
+    background-color: rgb(255, 0, 106);
+    font-size: clamp(.5rem, 4vw, 1.4rem);
+    text-align: center;
+    font-family: "inter-c";
+    text-transform: uppercase;
+    padding: 8px 32px;
+    border-radius: 8px;
+    color: black;
+    font-weight: 900;
+}
+
+.section-margin{
+    margin-top: clamp(1rem, 5vw, 8rem);
+    margin-bottom: clamp(2rem, 10vw, 16rem);
+}
