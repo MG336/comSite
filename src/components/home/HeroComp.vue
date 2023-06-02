@@ -11,6 +11,7 @@
                 alt = "free download"
                 controls
                 :poster="contentJson.hero.poster"
+                loading="lazy"
                 >
             </video>
         </div>
@@ -94,7 +95,7 @@ created() {
     
     
 .con-box {
-    max-width: 80vw;
+    max-width: clamp(16px, 90vw, 95vw);
     width: 100%;
     display: grid;
     align-items: center;
@@ -105,7 +106,7 @@ created() {
     position: relative;
     z-index: 2;
     // border: 1px solid white;
-    
+    padding-bottom: clamp(16px,10vw,32px);
     &__video{
         width: 100%;
 
@@ -150,20 +151,28 @@ created() {
 
 @media (max-width: 768px){
     .parallax-sec{
-        height: 100%;
-        align-items: flex-start;
+        height: 90vh;
+        align-items:center;
+
     }
         .con-box{
+            // grid-template-columns: 1fr 1fr;
             grid-template-columns: 1fr;
+            grid-template-rows: 0.7fr 1fr;
             max-width: 100%;
-            margin-bottom: calc($index);
-            
+            // margin-bottom: calc($index*20);
+            align-items: stretch;
+            justify-items: stretch;
+            // gap: 16px;
         }
         .text {
             // &__h1{
             //     font-size: calc($index * 4) ;
             // }
-            height: calc($index*50);
+            
+             
+            // height: calc($index*8);
+            border: none;
         }
     }
 

@@ -7,11 +7,12 @@
             <div class="navbar__icon"></div>
             <div class="navbar__icon"></div>
             <div class="navbar__icon"></div>
-        </div>
+      </div>
         
       <div class="navbar__links" :class="{ 'navbar__links--active': showMenu }">
         <!-- <a href="#" v-for="(item, index) in contantJson.navBar.links" key="index">{{ item }}</a> -->
         <router-link
+            @click="showMenu? showMenu = false : undefined"
             v-for="(item, index) in contentJson.navBar.comps" :key="index"
             :to="{name: item.compName, params: item.params}"
             >
@@ -53,7 +54,7 @@
     height: 52px;
     &__logo{
         width: 100%;
-      
+        max-width: 36px;
         font-size: 24px;
         display: block;
     }

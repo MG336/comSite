@@ -6,7 +6,7 @@
                 <div class="items">
                     <div class="items__item" v-for="(item, index) in motionGraphic.items">
                        
-                        <video class="items__video" controls :poster="item.poster">
+                        <video class="items__video" controls :poster="item.poster" loading="lazy">
                         <source :src="item.src" type="video/mp4">
                         </video>
                         <div class="items__textBox">

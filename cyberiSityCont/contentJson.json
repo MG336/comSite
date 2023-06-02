@@ -13,6 +13,11 @@
                 "name":"About",
                 "compName":"aboutComp",
                 "params":{}
+            },
+            {   
+                "name":"Donate",
+                "compName":"donateComp",
+                "params":{}
             }
         ]
     },
@@ -55,74 +60,6 @@
         "bgUrl": "../../cyberiSityCont/donate/bg.png",
         "opacityBg": "0.5"
     },
-
-
-    "influentialPeople":{
-        "title":"Influential people of the city",
-        "items": [
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood2",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood3",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood4",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood5",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood6",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood7",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood8",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood9",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood10",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood11",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        },
-        {
-            "imgUrl":"../../cyberiSityCont/influentialPeople/img/01.jpg",
-            "title":"Raven Blackwood12",
-            "text":"Founder and CEO of Blackwood Industries, a powerful corporation that controls the city's technology and cybernetic enhancements."
-        }
-    ]
-},
-
     "content":{
 
         "items": [

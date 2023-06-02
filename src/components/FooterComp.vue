@@ -22,6 +22,7 @@
 <style lang="scss" scoped>
     .footer{
         // margin-top: clamp(4rem, 8vw, 10rem);
+        border-top: 1px solid rgb(74, 74, 74);
         min-height: clamp(8rem, 12vw, 30rem);
         display: flex;
         align-items: center;

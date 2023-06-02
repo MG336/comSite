@@ -17,9 +17,9 @@
             </nav>
 
             <div class="items">
-                <div class="items__item" v-for="(item, index) in selectedType" :key="index" @click="showId($event)">
-                    <router-link :to="{name: 'itemComp', params: {id: item.id}}">
-                        <img class="items__img" :src="item.preview_item" :alt="item.title">
+                <div class="items__item" v-for="(item, index) in selectedType" :key="index">
+                    <router-link :to="{name: 'itemComp', params: {id: item.id}}" >
+                        <img class="items__img" :src="item.preview_item" :alt="item.title" loading="lazy">
                     </router-link>
                 </div>
             </div>
@@ -47,14 +47,10 @@
             setRouter(){
                 this.$router.replace('/new-route')
             },
-            showId(e){
-                console.log(e)
-            }
         },
         beforeRouteUpdate(to, from, next){
             const id = to.params.media;
             this.selectedType = this.footageData[id];
-            console.log(this.selectedType)
             next();
         }
     }
