@@ -1,5 +1,5 @@
 <template>
-    <a v-if="download" class="btn1" :href="to" :style="style" :download="download">
+    <a v-if="download" class="btn1" :href="to" :style="style" download>
         <slot></slot>
     </a>
 
@@ -69,11 +69,11 @@ export default {
     },
     
 }
+</script>
                 
          
 
                 
-</script>
 <style lang="scss" scoped>
 
 .textBtn {

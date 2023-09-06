@@ -11,12 +11,15 @@ import AboutComp from './components/AboutComp.vue';
 import NotFound from './components/NotFound.vue'
 
 //data json
-import footageDataJson from "../cyberiSityCont/footageData.json";
-import contentJson from "../cyberiSityCont/contentJson.json";
+import footageDataJson from "../content/json/footageData.json";
+import contentJson from "../content/json/contentJson.json";
 import socialDataJson from "../socialData/socialData.json";
-import motionGraphicJson from "../cyberiSityCont/motionGraphics.json";
+import motionGraphicJson from "../content/json/motionGraphics.json";
 // contantJson:"json",
 // socialDataJson:"json"
+
+//DB
+
 
 const routes = [
     {
@@ -24,7 +27,7 @@ const routes = [
         name:'donateComp',
         component: DonateComp,
         props: {
-            contentJson:contentJson,
+            socialData:socialDataJson,
         }
     },
     {
@@ -32,8 +35,8 @@ const routes = [
         name:'homeComp',
         component:HomeComp,
         props: {
-            contentJson:contentJson,
-            socialDataJson:socialDataJson
+            contentJson: contentJson,
+            socialDataJson: socialDataJson
         }
     },
     {

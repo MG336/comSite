@@ -52,6 +52,8 @@
     background-color: #000000;
     color: #fff;
     height: 52px;
+    position: relative;
+    z-index: 4;
     &__logo{
         width: 100%;
         max-width: 36px;

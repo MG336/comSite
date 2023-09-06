@@ -1,17 +1,19 @@
 <template>
 
     <section class="donate">
-        <header-comp class="header-comp" :headerData="contentJson.donate"></header-comp>
+        <header-comp class="header-comp" :headerData="socialData.donate"></header-comp>
         <div class="content section-margin" ref="cont">
             <div class="items">
-                <div class="items__item" v-for="(item, index) in contentJson.donate.items" :key="index">
+                <div class="items__item" v-for="(item, index) in socialData.donate.items" :key="index">
                     <span class="items__title">{{ item.title }}</span>
                     <div class="items__idBox">
+                     
                         <span class="items__id">{{item.id}}</span>
                         <img class="items__icon"
                         @click="copy" 
                         src="../assets/img/icon/copy.svg" 
                         alt="copy">
+                        
                     </div>
                     <div class="items__imgBox">
                         <img class="items__img" :src="item.qr" alt="qr code">
@@ -93,7 +95,7 @@ import HeaderComp from './elem/HeaderComp.vue';
         },
 
         props: {
-            contentJson:'json'
+            socialData:'json'
         }
     }
 </script>
@@ -132,8 +134,8 @@ import HeaderComp from './elem/HeaderComp.vue';
             
         }
         &__idBox {
-            background-color: black;
-            padding: clamp(.2rem, 4vw, 1rem);
+            background-color: rgb(255, 255, 255,.2);
+            padding: 8px 12px;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -145,10 +147,10 @@ import HeaderComp from './elem/HeaderComp.vue';
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 1px solid white;
-            padding: clamp(1rem, 5vw, 2rem);
+            border: 1px solid rgb(92, 92, 92);
+            padding: clamp(1rem, 5vw, 3rem);
             border-radius: 30px;
-            gap: clamp(1rem, 5vw, 2rem);
+            gap: clamp(.3rem, 5vw, 2rem);
         }
 
         &__imgBox {

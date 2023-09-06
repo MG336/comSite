@@ -13,8 +13,6 @@
                                 <router-link class="items__link" :to="{name: item.nameComp, params:item.params}">
                                     Learn more
                                 </router-link>
-                                <!-- <a class="items__link" href="item.link">Learn more</a> -->
-                              
                             </div>
                         </div> 
                     </div>
@@ -57,20 +55,6 @@ export default {
         }
     },
 
-    // created() {
-    //     const images = import.meta.glob (
-    //         '../assets/img/content/*.{png,jpg}',
-    //         {
-    //             import: 'default',
-    //             eager: true
-    //         }
-    //     );
-    //     const imageUrls = Object.values(images).map(img => {
-    //         return img
-    //     });
-    //     this.images = imageUrls;
-    // }
-
 }
 </script>
     
@@ -82,7 +66,7 @@ export default {
 $textBoxColor: #404040;
 .grid {
     display: flex;
-    gap: 8px;
+    // gap: 8px;
     flex-direction: column;
     background-color: $color1;
 }
@@ -120,7 +104,7 @@ $textBoxColor: #404040;
             font-size: clamp(1rem,3vw,2rem);
             font-weight: 900;
             line-height: 95%;
-
+            white-space: pre-wrap;
         }
             
         &__p{

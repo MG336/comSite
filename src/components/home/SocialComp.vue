@@ -2,7 +2,6 @@
     <section class="social">
         <div class="socialBox">
             <div class="socialBox__text">
-                <!-- <a class="socialBox__site" :href="socialDataJson.site.url" target="_blank">{{ socialDataJson.site.name }}</a> -->
                 <div class="socialBox__emailBox">
                     <a class="socialBox__email" :href="'mailto:' + socialDataJson.email.text">{{socialDataJson.email.text}}</a>
                 </div>
@@ -50,7 +49,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        // min-height: 480px;
         height: clamp(156px, 20vw, 356px);
 
     }
@@ -59,7 +57,6 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // gap: 32px;
         gap: clamp(4px,4vw,16px);
         &__text{
             display: flex;
