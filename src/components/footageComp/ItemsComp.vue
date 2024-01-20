@@ -1,102 +1,86 @@
 <template>
-    <section class="">
+    <section class="items-con">
         <header-comp class="header-comp" :headerData="footageData.hero"></header-comp>
         <div class="footage">
             <nav class="nav">
                 <div class="nav__item" 
                 :class="{nav__activeItem: $route.params.media === 'bg_video'}" 
-                @click="$router.replace('/footage/bg_video'), 
-                $route.query.search = false,
-                table = 'bg_video',
-                console.log('$route.query.table',$route.query.table)
-                ">bg video</div>
-                 
-                <div class="nav__item"
-                :class="{nav__activeItem: $route.params.media === 'textures'}"
-                @click="$router.replace('/footage/textures')">textures</div>
+                @click="selectMedia('/footage/bg_video')">bg video</div>
                 
                 <div class="nav__item"
-                :class="{nav__activeItem: $route.params.media === 'assets'}"
-                @click="$router.replace('/footage/assets')">assets</div>
-            </nav>
+                :class="{nav__activeItem: $route.params.media === 'textures'}"
+                @click="selectMedia('/footage/textures')">textures</div>
 
-            <div class="search">
-                <input class="search__input" type="text" maxlength="150" placeholder="Search.." v-model="searchData">
-                    <button class="search__button" type="submit" @click="searchItems(searchData)">
+                <div class="nav__item"
+                :class="{nav__activeItem: $route.params.media === 'assets'}"
+                @click="selectMedia('/footage/assets')">assets</div>
+            </nav>
+                 
+                
+
+            <form class="search" @submit.prevent="searchItems(searchData)">
+                <input class="search__input" type="search" maxlength="150" placeholder="text or id number" v-model="searchData"  pattern="[a-zA-Z0-9\s]+"/>
+                <!-- pattern="[a-zA-Z0-9\s]+" -->
+                <button class="search__button" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
-                    </button>
-            </div>
-
+                </button>
+            </form>
+            
             <div class="items" v-if="serverData">
                 <div class="items__item" 
                     v-for="(item, index) in serverData" 
-                    :key="item.id" 
-                    @click="store.setItemData(item)">
+                    :key="item.id">
+
                     <router-link :to="{name: 'itemComp', params: {id: item.id}}" >
                         <img class="items__img" 
-                        :src="`${serverUrl}/thumbnail/${item.id}${item.thumbnail}`" 
+                        :src="`${store.serverUrl}/thumbnail/${item.id}${item.thumbnail}`" 
                         :alt="item.title" loading="lazy">
                     </router-link>
                 </div>
             </div>
         </div>
+        <pagination-comp class="mb" :max-pages="maxPages"></pagination-comp>
     </section>
 </template> 
 
 
 <script setup>
-    import {ref, defineProps, onMounted, watch} from 'vue';
+    import {ref, defineProps, watch} from 'vue';
     import HeaderComp from '../elem/HeaderComp.vue';//добавить компонент
-    
+    import PaginationComp from '../elem/PaginationComp.vue';
+
     import { useRoute } from 'vue-router';
     import { useRouter } from 'vue-router';
     import { useStore } from '../../stores/store';
     
-    //Для выделения таблиц
-    let table = ref();
+    //pinia
+    const store = useStore();
+    
+    //vueRoute
+    const route = useRoute();
+    const router = useRouter();
+
+
 
     //Данные поиска
     let searchData = ref();
 
     //Данные с сервера
-    let serverData = ref();
+    let serverData = ref([]);
+
+    //Pages
     
-    const store = useStore();//pinia
-    const route = useRoute();//vue rout
-    const router = useRouter();
-
-
-    const serverUrl = 'http://localhost:3000';
+    let maxPages = ref(0);
 
     const props = defineProps({
         footageData: Object
     })
 
-    console.log('route.path',route.path)
-    console.log('route.params',route.params.media)
 
-
-
-
-   async function setData() {
-
-            if(store.itemsData === 0){
-
-                
-                //асинх запрос на серв
-                await store.fetchBGData();
-                serverData.value = store.itemsData;
-                return
-            }
-            serverData.value = store.itemsData;
-   }
-//    setData()
-
-
-
-   async function searchItems(searchData) {
+async function searchItems(searchData) {
+    
         if(searchData.length < 3){
             return
         }
@@ -109,75 +93,78 @@
             params.id = searchData
         } else {
             params.text = searchData
-        }
-
-        router.push({query: params})
-
-        // if(route.params.media !== 'search'){
-
-        //     router.replace({path:'search', query: params})
-        
-        // } else {
-        //     await router.replace({path:'search', query: params})
-        
-        // }
-    }
             
+            // params.text = params.text.replace(/\s+/gi, '_')
+        };
+        params.page = 1;
+        await router.push({query:params});
+
+        await getServerData(route.fullPath, route.params.media);
+}
         
+async function selectMedia(path){
+    await router.push({path:path,query:{page: 1}}),
+    getServerData(route.fullPath, route.params.media)
+}
 
-    watch (
-            ()=> route.params.media, 
-            async (newMedia, oldMedia) => {
-                console.log("route.query.table", route.query.table)
 
-                await store.fetchBGData(route.fullPath);
-                serverData.value = store.itemsData;
+async function getServerData(fullPath, paramsMedia) {
 
-                if(route.params.media !== 'search'){
-                    table = route.params.media
-                }
-                
-            }, {immediate: true}
-        )
+   if(!route.query.search){
+        if(route.query.page){
+            store.currentPage = Number(route.query.page);
 
-    watch (
-        //Когда будет менятся не понятно
-        ()=> route.query,
-        async (newQuery,oldQuery) => {
-            console.log('WATCH')
-            await store.fetchBGData(route.fullPath);
-            serverData.value = store.itemsData;
+            let newQuery = {
+                page: route.query.page
+            }
+           await router.replace({query:newQuery})
+            
+        } else{
+
+            store.currentPage = 1;
+           await router.replace({query:{page:1}});
         }
-    )
 
+    }else {
+        let key = 0;
 
-
-
-    // onMounted(()=>{
-    //     // getData();
-    //     if(store.data.length === 0){
-    //         console.log(1010)
-    //         store.fetchBGData();
-    //         responseData.value = store.data;
-    //     }
+        if(route.query.text){
+            key = route.query.text.replace(/[^a-z0-9]/gi, '');
+            searchData.value = route.query.text;
+        }else {
+            key = route.query.id;
+            searchData.value = route.query.id;
+        }
+ 
+        paramsMedia += '_'+key
         
-    //     console.log('responseData',responseData.value)
-    // })
-    // function setRouter(){
-    //             this.$router.replace('/new-route')
-    // }
-    // watch(
-    //     ()=> store.data,
-    //     (newValue) => {
-    //         console.log('newValue',newValue)
-    //         responseData.value = store.data
-    //         // sessionStorage.setItem('bg', JSON.stringify(newValue));
-
-    //     },{deep:true}
-    // );
+    }
+    
+    await store.fetchItemsData(fullPath, paramsMedia);
+    serverData.value = store.pagination;
+    maxPages.value = store.maxPages;
+}
 
 
 
+
+getServerData(route.fullPath, route.params.media);
+
+
+
+// Отследить store.currentPage
+watch( ()=> store.currentPage,async ()=>{
+    await router.push({query:{page:store.currentPage}});
+    serverData.value = store.pagination;
+})
+
+//Отследить page.
+watch(
+    ()=> route.query.page,
+    ()=> {
+        store.currentPage = Number(route.query.page);
+    }
+)
 
 </script>
 
@@ -185,6 +172,7 @@
 
 
 <style lang="scss" scoped>
+
 .search{
     height: 48px;
     // border: 1px solid white;
@@ -202,11 +190,14 @@
         width: 100%;
         max-width: 800px;
         outline: none;
-        padding: 4px; /* Убирает внутренний отступ */
-        margin: 0; /* Убирает внешний отступ */
+        padding: 4px; 
+        margin: 0; 
         background-color: transparent;
         color: $textPrimeColor;
         font-size: clamp(0.7rem, 4vw, 1rem);
+        // &:invalid {
+        //     border: red 1px solid;
+        // }
     }
     &__button{
         width: 80px;
@@ -273,6 +264,10 @@
             border-bottom: 2px solid white;
         }
     }
+    .mb{
+    margin-bottom: 16px;
+    }
+    
     @media (max-width: 756px){
         .footage{
             margin: 0 0;

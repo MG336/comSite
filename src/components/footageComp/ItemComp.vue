@@ -127,14 +127,8 @@
     //Router
     const route = useRoute()
 
-
-    const videoUrl = ref('http://localhost:3000/preview/1814066.mp4');
-    
-    
-    //загрузки данных с сервера если введен url item
-    if(!store.itemData) {
-       store.fetchItem('bg/',route.params.id);
-    }
+    //Загрузка данных с сервера если их нет в сессии
+    store.fetchItem(route.fullPath, route.params.id)
 
 </script>
 

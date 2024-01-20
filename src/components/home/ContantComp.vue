@@ -50,9 +50,9 @@ export default {
         contentJson: 'json'
     },
     methods: {
-        getImageUrl(filename){
-            return require(`../assets/img/content/${filename}`);
-        }
+        // getImageUrl(filename){
+        //     return require(`../assets/img/content/${filename}`);
+        // }
     },
 
 }

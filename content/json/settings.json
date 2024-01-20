@@ -1,0 +1,5 @@
+{
+    "siteUrl": "http://localhost:5173",
+    "serverUrl":"http://localhost:3000",
+    "passwordRegex": "^[A-Za-z0-9_\\!\\@\\#\\$\\%\\^\\&\\*\\?\\)\\.\\+\\(<>\\-]+$"
+}

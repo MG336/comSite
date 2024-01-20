@@ -1,0 +1,115 @@
+{
+    "navBar":{
+        "logo":"../content/navBar/logo.svg",
+        "logoUrl":"https://mg1010.com",
+        "links":["Home","About","Contact"],
+        "comps":[
+            {   
+                "name":"Home",
+                "compName":"homeComp",
+                "params":{}
+            },
+            {   
+                "name":"About",
+                "compName":"aboutComp",
+                "params":{}
+            },
+            {   
+                "name":"Donate",
+                "compName":"donateComp",
+                "params":{}
+            }
+        ],
+        "noAuth":[
+            {   
+                "name":"Log in",
+                "compName":"login",
+                "params":{}
+            },
+            {   
+                "name":"Sign Up",
+                "compName":"signUp",
+                "params":{}
+            }
+            
+        ],
+        "auth":[
+            {
+                "name": "Log Out",
+                "compName": "homeComp",
+                "params":{}
+            }
+        ]
+       
+    },
+
+    "hero":{
+        "title":["motion graphics","web design","free footages"],
+        "subtitle":"Dystopian Metropolis",
+        "text":"The metropolises of the cyberpunk world are a testament to human ambition and its dark consequences. The towering skyscrapers symbolize the wealth and power of the corporations that rule over the city, while the crowded, dilapidated slums are a reflection of the poverty and desperation of the masses.",
+        "img":"../content/home/hero/bg_01.jpg",
+        "opacityBg": "0.8",
+        "poster":"../../content/home/hero/poster.jpg",
+        "video":"../../content/home/hero/video_03.mp4"
+        
+    },
+
+    "videoComp":{
+        "poster":"../../content/video/img/preload.jpg",
+        "videoUrl":"../../content/video/video.mp4",
+        "bgUrl":"../../content/video/img/00038.png",
+        "title":"Step into the Future with Neo Byte",
+        "text":"In the city of Neo-Byte, the air was thick with smog and the streets teemed with desperate, tech-enhanced souls. The towering spires of high-tech corporations loomed above the slums and shantytowns that sprawled below, a constant reminder of the vast gulf between the haves and have-nots. Augmented reality streets pulsed with neon lights, drawing in those seeking escape from their bleak reality. Cyber-augmentation clinics promised a path to a better life, but at what cost? Beneath it all, underground hacker hideouts plotted their next move, while military and government control centers watched their every move. In this world of constant rain and pervasive grime, the promise of a better life was always just out of reach.",
+        "opacityBg":"0.5"
+    },
+    "content":{
+
+        "items": [
+            {
+                "url": "../../content/home/img/bg_footage.jpg",
+                "title":"download video backgrouns",
+                "nameComp":"itemsComp",
+                "params":{
+                    "media":"bg_video"
+                },
+                "text":"The headquarters of the corporations are magnificent structures of steel and glass, showcasing the grandeur of the technological revolution. However, beneath their gleaming exteriors lies a labyrinth of deceit and manipulation, as the corporations use their power to control the lives of the people."
+            },
+            {
+                "url": "../../content/home/img/bg_texture.jpg",
+                "title":"download textures",
+                "nameComp":"itemsComp",
+                "params":{
+                    "media":"textures"
+                },
+                "text":"The headquarters of the corporations are magnificent structures of steel and glass, showcasing the grandeur of the technological revolution. However, beneath their gleaming exteriors lies a labyrinth of deceit and manipulation, as the corporations use their power to control the lives of the people."
+            }
+        ]
+    },
+    "about":{
+        "title":"about",
+        "img":"../../content/about/ava.jpg",
+        "text":[
+            "Welcome! My name is Mikhail, and I am a digital designer. I specialize in web design, motion graphics, 3D, and frontend development.",
+           "I have a wealth of experience working on numerous successful projects with clients from various industries, ranging from startups to large corporations. This has allowed me to gain expertise in working with different styles and requirements, making me ready to take on any creative challenge.",
+           "If you are in search of a talented designer who can help you achieve your goals and elevate your company to new heights, I am ready to take on the job."
+        ],
+        "skills":{
+            "cod":[
+                "2143214244",
+                "2143214244"
+            ],
+
+            "design":[
+                "2143214244",
+                "2143214244"
+            ]
+        }
+    }
+}
+        
+    
+                  
+        
+    
+
+    

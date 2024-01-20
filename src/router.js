@@ -8,13 +8,23 @@ import HomeComp from './components/HomeComp.vue';
 import MotionGraphics from './components/motionGraphics/MotionGraphics.vue';
 import DonateComp from './components/DonateComp.vue';
 import AboutComp from './components/AboutComp.vue';
-import NotFound from './components/NotFound.vue'
+import NotFound from './components/NotFound.vue';
+
+//authorization
+import Login from './components/authorization/Login.vue';
+import ForgotPassword from './components/authorization/ForgotPassword.vue';
+import PasswordRecovery from './components/authorization/UpdatePassword.vue';
+import SignUp from './components/authorization/SignUp.vue';
+import EmailVerified from './components/authorization/EmailVerified.vue'
+import EmailNotVerified from './components/authorization/EmailNotVerified.vue'
 
 //data json
 import footageDataJson from "../content/json/footageData.json";
 import contentJson from "../content/json/contentJson.json";
 import socialDataJson from "../socialData/socialData.json";
 import motionGraphicJson from "../content/json/motionGraphics.json";
+
+
 // contantJson:"json",
 // socialDataJson:"json"
 
@@ -71,6 +81,40 @@ const routes = [
             aboutData:contentJson.about
         }
     },
+
+    //Authorization
+    {
+        path:'/log-in',
+        name:'login',
+        component: Login
+    },
+    {
+        path:'/forgot-password',
+        name:'forgotPassword',
+        component: ForgotPassword
+    },
+    {
+        path:'/password-recovery',
+        name:'passwordRecovery',
+        component: PasswordRecovery
+    },
+    {
+        path:'/sign-up',
+        name:'signUp',
+        component: SignUp
+    },
+    {
+        path:'/email-verified',
+        name:'emailVerified',
+        component: EmailVerified
+    },
+    {
+        path:'/email-not-verified',
+        name:'emailNotVerified',
+        component: EmailNotVerified
+    },
+
+
     {
         path: '/:catchAll(.*)',
         component: NotFound

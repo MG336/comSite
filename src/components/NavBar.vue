@@ -1,4 +1,10 @@
 <template>
+      <!-- Привезать панель навагации 
+      Добавить карзину
+      Добавить список покупок
+      Переместить пункты в лево 
+      После перезагрузки снова баг с Log out
+    -->
     <div class="navbar">
     <router-link to="/">
       <img class="navbar__logo" :src="contentJson.navBar.logo">
@@ -9,39 +15,66 @@
             <div class="navbar__icon"></div>
       </div>
         
-      <div class="navbar__links" :class="{ 'navbar__links--active': showMenu }">
+      <div class="navbar__links" :class="{'navbar__links--active': showMenu}">
         <!-- <a href="#" v-for="(item, index) in contantJson.navBar.links" key="index">{{ item }}</a> -->
         <router-link
             @click="showMenu? showMenu = false : undefined"
             v-for="(item, index) in contentJson.navBar.comps" :key="index"
             :to="{name: item.compName, params: item.params}"
-            >
-            {{ item.name }}
+            >{{ item.name }}
         </router-link>
-            
+        <router-link v-if="!isAuth"
+            @click="showMenu? showMenu = false : undefined"
+            v-for="(item, index) in contentJson.navBar.noAuth" :key="index"
+            :to="{name: item.compName, params: item.params}"
+            >{{ item.name }}
+        </router-link>    
+        <!-- <router-link v-if="!isAuth"
+            @click="showMenu? showMenu = false : undefined"
+            v-for="(item, index) in contentJson.navBar.auth" :key="index"
+            :to="{name: item.compName, params: item.params}"
+            >{{ item.name }}
+        </router-link> -->
+        <router-link 
+            v-if="isAuth"
+            @click="[
+              () => showMenu? showMenu = false : undefined,
+              store.logOut()
+            ]"
+            to="/"
+            >Log Out
+          </router-link>
       </div>
     </div>
   </template>
-  
-  <script>
-  export default {
-    name:"NavBar",
-    data() {
-      return {
-        showMenu: false
-      }
-    },
-    props:{
-        contentJson:"json",
-    },
-    methods: {
-      toggleMenu() {
-        this.showMenu = !this.showMenu;
-        console.log(this.showMenu)
-      }
+  <script setup>
+    import {defineProps, ref, watch } from 'vue';
+    import {useStore} from '../stores/store';
+    import setting from '../../content/json/settings.json'
+    const token = localStorage.getItem('accessToken');
+    const store = useStore();
+
+    let showMenu = ref(false);
+    let isAuth = ref(store.isAuth());
+
+    function toggleMenu() {
+        showMenu.value = !showMenu.value;
     }
-  }
+
+    const {contentJson} = defineProps(['contentJson']);
+    console.log('navBar')
+    //Отслеживаем токен
+    watch (
+      () => store.authToken,
+      () => {
+        isAuth.value = store.isAuth();
+      }
+    )
+    // const response = await store.checkToken(setting.serverUrl+'/check-token');
+    // console.log(response);
+
   </script>
+
   
   <style lang="scss" scoped>
   .navbar {

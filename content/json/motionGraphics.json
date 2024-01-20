@@ -1,0 +1,45 @@
+{
+    "header":{
+        "title":"Motion Graphics Portfolio",
+        "bgImg":"../../content/motionGraphics/header.jpg"
+    },
+    "items":[
+        {
+            "title":"Proident cillum minim consequat cillum do tempor duis.",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png",
+            "link":"https://mg1010.com"
+        },
+        {
+            "title":"02",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png"
+        },
+
+            
+        {
+            "title":"04",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png"
+
+        },
+        {
+            "title":"05",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png"
+
+        },
+        {
+            "title":"06",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png"
+
+        },
+        {
+            "title":"07",
+            "src":"../../content/motionGraphics/video/01/01.mp4",
+            "poster":"../../content/motionGraphics/video/01/02.png"
+
+        }
+    ]
+}
